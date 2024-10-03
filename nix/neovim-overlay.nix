@@ -98,20 +98,14 @@ with final.pkgs.lib; let
     # monk3yd
     gruvbox-material # https://github.com/sainnhe/gruvbox-material
     
-    zellijnav
-    # zellij-nav-nvim # https://github.com/swaits/zellij-nav.nvim
-    # zellij-nav
+    zellijnav # https://github.com/swaits/zellij-nav.nvim
   ];
 
   extraPackages = with pkgs; [
     # language servers, etc.
     lua-language-server
     nil # nix LSP
-    go
     gopls # golang LSP
-    go-tools
-    delve
-    templ
   ];
 in {
   # This is the neovim derivation
