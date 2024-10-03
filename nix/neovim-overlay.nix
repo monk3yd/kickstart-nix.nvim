@@ -106,7 +106,9 @@ with final.pkgs.lib; let
     lua-language-server
     nil # nix LSP
     gopls # golang LSP
-    templ
+    templ # templ language &LSP
+    vscode-langservers-extracted # html/css/eslint
+    htmx-lsp
   ];
 in {
   # This is the neovim derivation
