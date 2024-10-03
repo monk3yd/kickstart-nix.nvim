@@ -17,6 +17,18 @@ with final.pkgs.lib; let
   # This is the helper function that builds the Neovim derivation.
   mkNeovim = pkgs.callPackage ./mkNeovim.nix { inherit pkgs-wrapNeovim; };
 
+  zellijnav = pkgs.vimUtils.buildVimPlugin {
+    pname = "zellij-nav.nvim";
+    version = "2024-09-03";
+    src = pkgs.fetchFromGitHub {
+      owner = "swaits";
+      repo = "zellij-nav.nvim";
+      rev = "511e9b7bb7165ef817dbfb40169cea9b4d3c3d44";
+      sha256 = "0cvdxzbz45ac46s1i811l67g1hg5wgsb8hy7rrzbw52mq8qbkliw";
+    };
+    meta.homepage = "https://github.com/swaits/zellij-nav.nvim/";
+  };
+
   # A plugin can either be a package or an attrset, such as
   # { plugin = <plugin>; # the package, e.g. pkgs.vimPlugins.nvim-cmp
   #   config = <config>; # String; a config that will be loaded with the plugin
@@ -28,7 +40,6 @@ with final.pkgs.lib; let
   all-plugins = with pkgs.vimPlugins; [
     # plugins from nixpkgs go in here.
     # https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=vimPlugins
-    gruvbox-material
 
     nvim-treesitter.withAllGrammars
     luasnip # snippets | https://github.com/l3mon4d3/luasnip/
@@ -83,12 +94,20 @@ with final.pkgs.lib; let
     # (mkNvimPlugin inputs.wf-nvim "wf.nvim") # (example) keymap hints | https://github.com/Cassin01/wf.nvim
     # ^ bleeding-edge plugins from flake inputs
     which-key-nvim
+
+    # monk3yd
+    gruvbox-material # https://github.com/sainnhe/gruvbox-material
+    
+    zellijnav
+    # zellij-nav-nvim # https://github.com/swaits/zellij-nav.nvim
+    # zellij-nav
   ];
 
   extraPackages = with pkgs; [
     # language servers, etc.
     lua-language-server
     nil # nix LSP
+    gopls # golang LSP
   ];
 in {
   # This is the neovim derivation
