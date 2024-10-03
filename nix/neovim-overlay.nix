@@ -106,6 +106,7 @@ with final.pkgs.lib; let
     lua-language-server
     nil # nix LSP
     gopls # golang LSP
+    templ
   ];
 in {
   # This is the neovim derivation
