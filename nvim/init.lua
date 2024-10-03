@@ -1,16 +1,17 @@
 local cmd = vim.cmd
 local fn = vim.fn
 local opt = vim.o
-local g = vim.g
+local global = vim.g
 
+-- Set <space> as the leader key
 -- <leader> key. Defaults to `\`. Some people prefer space.
-g.mapleader = ' '
-g.maplocalleader = ' '
+global.mapleader = ' '
+global.maplocalleader = ' '
 
 opt.compatible = false
 
 -- Set to true if you have a Nerd Font installed
-g.have_nerd_font = true
+global.have_nerd_font = true
 
 -- Enable true colour support
 if fn.has('termguicolors') then
@@ -138,7 +139,7 @@ vim.diagnostic.config {
   },
 }
 
-g.editorconfig = true
+global.editorconfig = true
 
 vim.opt.colorcolumn = '100'
 
