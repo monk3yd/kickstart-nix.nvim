@@ -105,10 +105,14 @@ with final.pkgs.lib; let
     # language servers, etc.
     lua-language-server
     nil # nix LSP
-    gopls # golang LSP
-    templ # templ language &LSP
-    vscode-langservers-extracted # html/css/eslint
+    gopls
+    templ
     htmx-lsp
+    tailwindcss-language-server
+    pyright
+    nodePackages.vscode-json-languageserver
+    dockerfile-language-server-nodejs
+    # vscode-langservers-extracted # html/css/eslint
   ];
 in {
   # This is the neovim derivation
