@@ -148,9 +148,3 @@ cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
 
 -- let sqlite.lua (which some plugins depend on) know where to find sqlite
 vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
-
--- vim.g.gruvbox_material_transparent_background = 2
--- vim.g.gruvbox_material_diagnostic_text_highlight = 1
--- vim.g.gruvbox_material_current_word = "bold"
-
--- vim.cmd.colorscheme 'gruvbox-material'
