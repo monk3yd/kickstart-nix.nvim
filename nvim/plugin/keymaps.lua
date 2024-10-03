@@ -198,3 +198,6 @@ keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'move UP full-page and center' })
 --     vim.opt.hlsearch = vim.tbl_contains({ '<CR>', 'n', 'N', '*', '#', '?', '/' }, vim.fn.keytrans(char))
 --   end
 -- end, auto_hlsearch_namespace)
+
+-- Clear search highlight on <Esc> press in normal mode
+keymap.set('n', '<Esc>', '<CMD>nohlsearch<CR>')

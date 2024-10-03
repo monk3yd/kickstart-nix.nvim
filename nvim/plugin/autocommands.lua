@@ -91,15 +91,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local bufnr = event.buf
     local client = vim.lsp.get_client_by_id(event.data.client_id)
 
-    -- NOTE: Remember that Lua is a real programming language, and as such it is possible
-    -- to define small helper and utility functions so you don't have to repeat yourself.
-    --
-    -- In this case, we create a function that lets us more easily define mappings specific
-    -- for LSP related items. It sets the mode, buffer and description for us each time.
-    local map = function(keys, func, desc)
-      vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
-    end
-
     -- Attach plugins
     require('nvim-navic').attach(client, bufnr)
 
@@ -108,46 +99,56 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Enable completion triggered by <c-x><c-o>
     vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
-    local function desc(description)
-      return { noremap = true, silent = true, buffer = bufnr, desc = description }
+
+    -- NOTE: Remember that Lua is a real programming language, and as such it is possible
+    -- to define small helper and utility functions so you don't have to repeat yourself.
+    --
+    -- In this case, we create a function that lets us more easily define mappings specific
+    -- for LSP related items. It sets the mode, buffer and description for us each time.
+    local map = function(keys, func, description)
+      vim.keymap.set('n', keys, func, { noremap = true, silent = true, buffer = bufnr, desc = 'LSP: ' .. description })
     end
+
+    -- local function desc(description)
+    --   return { noremap = true, silent = true, buffer = bufnr, desc = description }
+    -- end
 
     -- Jump to the definition of the word under your cursor.
     --  This is where a variable was first declared, or where a function is defined, etc.
     --  To jump back, press <C-t>.
-    map('gd', vim.lsp.buf.definition, desc('lsp [g]o to [d]efinition'))
+    map('gd', vim.lsp.buf.definition, ('[G]o [D]efinition'))
 
     -- WARN: This is not Goto Definition, this is Goto Declaration.
     --  For example, in C this would take you to the header.
     map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-    map('gD', vim.lsp.buf.declaration, desc('lsp [g]o to [D]eclaration'))
 
-    map('<space>gt', vim.lsp.buf.type_definition, desc('lsp [g]o to [t]ype definition'))
-    map('K', vim.lsp.buf.hover, desc('[lsp] hover'))
-    map('<space>pd', peek_definition, desc('lsp [p]eek [d]efinition'))
-    map('<space>pt', peek_type_definition, desc('lsp [p]eek [t]ype definition'))
-    map('gi', vim.lsp.buf.implementation, desc('lsp [g]o to [i]mplementation'))
-    map('<C-k>', vim.lsp.buf.signature_help, desc('[lsp] signature help'))
-    map('<space>wa', vim.lsp.buf.add_workspace_folder, desc('lsp add [w]orksp[a]ce folder'))
-    map('<space>wr', vim.lsp.buf.remove_workspace_folder, desc('lsp [w]orkspace folder [r]emove'))
+    map('<space>gt', vim.lsp.buf.type_definition, '[G]o to [T]ype definition')
+    map('K', vim.lsp.buf.hover, 'hover')
+    map('<space>pd', peek_definition, '[P]eek [D]efinition')
+    map('<space>pt', peek_type_definition, '[P]eek [T]ype definition')
+    map('gi', vim.lsp.buf.implementation, '[G]o to [I]mplementation')
+    map('<C-k>', vim.lsp.buf.signature_help, 'signature help')
+    map('<space>wa', vim.lsp.buf.add_workspace_folder, 'add [W]orksp[A]ce folder')
+    map('<space>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace folder [R]emove')
     map('<space>wl', function()
       vim.print(vim.lsp.buf.list_workspace_folders())
-    end, desc('[lsp] [w]orkspace folders [l]ist'))
-    map('<space>rn', vim.lsp.buf.rename, desc('lsp [r]e[n]ame'))
-    map('<space>wq', vim.lsp.buf.workspace_symbol, desc('lsp [w]orkspace symbol [q]'))
-    map('<space>dd', vim.lsp.buf.document_symbol, desc('lsp [dd]ocument symbol'))
-    map('<M-CR>', vim.lsp.buf.code_action, desc('[lsp] code action'))
-    map('<M-l>', vim.lsp.codelens.run, desc('[lsp] run code lens'))
-    map('<space>cr', vim.lsp.codelens.refresh, desc('lsp [c]ode lenses [r]efresh'))
-    map('gr', vim.lsp.buf.references, desc('lsp [g]et [r]eferences'))
+    end, '[W]orkspace folders [L]ist')
+    map('<space>rn', vim.lsp.buf.rename, '[R]e[N]ame')
+    map('<space>wq', vim.lsp.buf.workspace_symbol, '[w]orkspace symbol [q]')
+    map('<space>dd', vim.lsp.buf.document_symbol, '[dd]ocument symbol')
+    map('<M-CR>', vim.lsp.buf.code_action, 'code action')
+    map('<M-l>', vim.lsp.codelens.run, 'run code lens')
+    map('<space>cr', vim.lsp.codelens.refresh, '[c]ode lenses [r]efresh')
+    map('gr', vim.lsp.buf.references, '[G]et [R]eferences')
     map('<space>f', function()
       vim.lsp.buf.format { async = true }
-    end, desc('[lsp] [f]ormat buffer'))
+    end, ('[F]ormat buffer'))
+
     if client and client.server_capabilities.inlayHintProvider then
       map('<space>h', function()
         local current_setting = vim.lsp.inlay_hint.is_enabled { bufnr = bufnr }
         vim.lsp.inlay_hint.enable(not current_setting, { bufnr = bufnr })
-      end, desc('[lsp] toggle inlay hints'))
+      end, ('toggle inlay [H]ints'))
     end
 
     -- Auto-refresh code lenses

@@ -68,14 +68,27 @@ opt.updatetime = 250
 -- Displays which-key popup sooner
 opt.timeoutlen = 300
 
--- Check spelling
-opt.spell = false
-opt.spelllang = 'en'
+-- Configure how new splits should be opened
+opt.splitright = true
+opt.splitbelow = true
+
+-- Sets how neovim will display certain whitespace characters in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`
+opt.list = true
+-- opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+-- Preview substitutions live, as you type!
+opt.inccommand = 'split'
+
+-- Minimal number of screen lines to keep above and below the cursor.
+opt.scrolloff = 10
+opt.sidescrolloff = 10
 
 opt.expandtab = true
 opt.tabstop = 4
-opt.softtabstop = 0
 opt.shiftwidth = 4
+opt.softtabstop = 0
 opt.foldenable = true
 opt.history = 2000
 opt.nrformats = 'bin,hex' -- 'octal'
@@ -83,13 +96,16 @@ opt.nrformats = 'bin,hex' -- 'octal'
 -- Save undo history
 opt.undofile = true
 
--- Configure how new splits should be opened
-opt.splitright = true
-opt.splitbelow = true
+-- Check spelling
+opt.spell = false
+opt.spelllang = 'en'
 
 opt.cmdheight = 0
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
+-- Display lines as one long line
+opt.wrap = false
 
 -- Configure Neovim diagnostic messages
 
