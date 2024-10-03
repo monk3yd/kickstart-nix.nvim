@@ -89,9 +89,18 @@ opt.expandtab = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.softtabstop = 0
-opt.foldenable = true
 opt.history = 2000
 opt.nrformats = 'bin,hex' -- 'octal'
+
+-- UFO plugin folding
+opt.foldcolumn = '1' -- '0' is not bad
+opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease
+opt.foldlevelstart = 99
+opt.foldenable = true
+opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
+-- Display lines as one long line
+opt.wrap = false
 
 -- Save undo history
 opt.undofile = true
@@ -101,11 +110,6 @@ opt.spell = false
 opt.spelllang = 'en'
 
 opt.cmdheight = 0
-
-opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-
--- Display lines as one long line
-opt.wrap = false
 
 -- Configure Neovim diagnostic messages
 

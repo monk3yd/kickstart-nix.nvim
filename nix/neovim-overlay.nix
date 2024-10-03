@@ -29,6 +29,18 @@ with final.pkgs.lib; let
     meta.homepage = "https://github.com/swaits/zellij-nav.nvim/";
   };
 
+  nvimufo = pkgs.vimUtils.buildVimPlugin {
+    pname = "nvim-ufo";
+    version = "2024-09-08";
+    src = pkgs.fetchFromGitHub {
+      owner = "kevinhwang91";
+      repo = "nvim-ufo";
+      rev = "203c9f434feec57909ab4b1e028abeb3349b7847";
+      sha256 = "1w4d7h53p4xpx8pz2shn253900xhqgw5r7y103y60ywf53cr2k03";
+    };
+    meta.homepage = "https://github.com/kevinhwang91/nvim-ufo/";
+  };
+
   # A plugin can either be a package or an attrset, such as
   # { plugin = <plugin>; # the package, e.g. pkgs.vimPlugins.nvim-cmp
   #   config = <config>; # String; a config that will be loaded with the plugin
@@ -97,8 +109,9 @@ with final.pkgs.lib; let
 
     # monk3yd
     gruvbox-material # https://github.com/sainnhe/gruvbox-material
-    
     zellijnav # https://github.com/swaits/zellij-nav.nvim
+    promise-async # https://github.com/kevinhwang91/promise-async/
+    nvimufo # https://github.com/kevinhwang91/nvim-ufo/
   ];
 
   extraPackages = with pkgs; [
