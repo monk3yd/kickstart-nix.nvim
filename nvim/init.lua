@@ -1,21 +1,16 @@
-local cmd = vim.cmd
-local fn = vim.fn
-local opt = vim.o
-local global = vim.g
-
 -- Set <space> as the leader key
 -- <leader> key. Defaults to `\`. Some people prefer space.
-global.mapleader = ' '
-global.maplocalleader = ' '
+vim.glob.mapleader = ' '
+vim.glob.maplocalleader = ' '
 
-opt.compatible = false
+vim.opt.compatible = false
 
 -- Set to true if you have a Nerd Font installed
-global.have_nerd_font = true
+vim.glob.have_nerd_font = true
 
 -- Enable true colour support
-if fn.has('termguicolors') then
-  opt.termguicolors = true
+if vim.fn.has('termguicolors') then
+  vim.opt.termguicolors = true
 end
 
 -- [[ Options settings ]]
@@ -23,93 +18,98 @@ end
 -- See :h <option> to see what the options do
 
 -- Search down into subfolders
-opt.path = vim.o.path .. '**'
+vim.opt.path = vim.o.path .. '**'
 
 -- Show line numbers
-opt.number = true
+vim.opt.number = true
 
--- Switch to relative line numbers, to help with jumping
-opt.relativenumber = true
+-- Switch to relative line numbers to help with jumping
+vim.opt.relativenumber = true
 
 -- Mouse mode, can be useful for resizing split
-opt.mouse = 'a'
+vim.opt.mouse = 'a'
 
 -- Don't show vim mode if you have status line
-opt.showmode = false
+vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim
-opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = 'unnamedplus'
 
 -- Enable break indent
-opt.breakindent = true
+vim.opt.breakindent = true
 
--- Show which line your cursor is on
-opt.cursorline = true
-
-opt.lazyredraw = true
-
--- Highlight matching parentheses, etc
-opt.showmatch = true
-
-opt.incsearch = true
-opt.hlsearch = true
+-- Save undo history
+vim.opt.undofile = true
 
 -- Case insensitive searching UNLESS \C or one or more capital letters in the search term
-opt.ignorecase = true
-opt.smartcase = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- Keep signcolumn on by default (?)
-opt.signcolumn = 'yes'
+vim.opt.signcolumn = 'yes'
 
 -- Decrease update time
-opt.updatetime = 250
+vim.opt.updatetime = 250
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
-opt.timeoutlen = 300
+vim.opt.timeoutlen = 300
 
 -- Configure how new splits should be opened
-opt.splitright = true
-opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-opt.list = true
--- opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.list = true
+
+-- TODO:
+-- This may need to be moved to after/plugin configuration
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
-opt.inccommand = 'split'
+vim.opt.inccommand = 'split'
+
+-- Show which line your cursor is on
+vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-opt.scrolloff = 10
-opt.sidescrolloff = 10
+vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 10
 
-opt.expandtab = true
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.softtabstop = 0
-opt.history = 2000
-opt.nrformats = 'bin,hex' -- 'octal'
+-- ?
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 0
+
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+
+vim.opt.lazyredraw = true
+
+-- Highlight matching parentheses, etc
+vim.opt.showmatch = true
+
+vim.opt.history = 2000
+vim.opt.nrformats = 'bin,hex' -- 'octal'
 
 -- UFO plugin folding
-opt.foldcolumn = '1' -- '0' is not bad
-opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease
-opt.foldlevelstart = 99
-opt.foldenable = true
-opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.opt.foldcolumn = '1' -- '0' is not bad
+vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 -- Display lines as one long line
-opt.wrap = false
-
--- Save undo history
-opt.undofile = true
+vim.opt.wrap = false
 
 -- Check spelling
-opt.spell = false
-opt.spelllang = 'en'
+vim.opt.spell = false
+vim.opt.spelllang = 'en'
 
-opt.cmdheight = 0
+vim.opt.cmdheight = 0
 
 -- Configure Neovim diagnostic messages
 
@@ -159,13 +159,13 @@ vim.diagnostic.config {
   },
 }
 
-global.editorconfig = true
+vim.glob.editorconfig = true
 
 vim.opt.colorcolumn = '100'
 
 -- Native plugins
-cmd.filetype('plugin', 'indent', 'on')
-cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
+vim.cmd.filetype('plugin', 'indent', 'on')
+vim.cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
 
 -- let sqlite.lua (which some plugins depend on) know where to find sqlite
-vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
+vim.glob.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
