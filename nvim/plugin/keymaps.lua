@@ -285,8 +285,8 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Split screen
-vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { silent = true }) -- vertically
-vim.keymap.set("n", "<leader>s", ":split<CR>", { silent = true })  -- horizontally
+vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { silent = true, desc = "Split Screen [V]ertically" })
+vim.keymap.set("n", "<leader>s", ":split<CR>", { silent = true, desc = "[S]plit Screen Horizontally" })
 
 -- Hold cursor in the same place when J is pressed.
 -- J appends the line below to the end of current line
