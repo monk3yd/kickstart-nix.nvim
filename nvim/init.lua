@@ -1,12 +1,12 @@
 -- Set <space> as the leader key
 -- <leader> key. Defaults to `\`. Some people prefer space.
-vim.glob.mapleader = ' '
-vim.glob.maplocalleader = ' '
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 vim.opt.compatible = false
 
 -- Set to true if you have a Nerd Font installed
-vim.glob.have_nerd_font = true
+vim.g.have_nerd_font = true
 
 -- Enable true colour support
 if vim.fn.has('termguicolors') then
@@ -64,7 +64,7 @@ vim.opt.splitbelow = true
 --  and `:help 'listchars'`
 vim.opt.list = true
 
--- TODO:
+-- NOTE:
 -- This may need to be moved to after/plugin configuration
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
@@ -140,10 +140,10 @@ vim.diagnostic.config {
   signs = {
     text = {
       -- Requires Nerd fonts
-      [vim.diagnostic.severity.ERROR] = '󰅚',
-      [vim.diagnostic.severity.WARN] = '⚠',
-      [vim.diagnostic.severity.INFO] = 'ⓘ',
-      [vim.diagnostic.severity.HINT] = '󰌶',
+      [vim.diagnostic.severity.ERROR] = ' 󰅚',
+      [vim.diagnostic.severity.WARN] = ' ⚠',
+      [vim.diagnostic.severity.INFO] = ' ⓘ',
+      [vim.diagnostic.severity.HINT] = ' 󰌶',
     },
   },
   update_in_insert = false,
@@ -159,7 +159,7 @@ vim.diagnostic.config {
   },
 }
 
-vim.glob.editorconfig = true
+vim.g.editorconfig = true
 
 vim.opt.colorcolumn = '100'
 
@@ -168,4 +168,4 @@ vim.cmd.filetype('plugin', 'indent', 'on')
 vim.cmd.packadd('cfilter') -- Allows filtering the quickfix list with :cfdo
 
 -- let sqlite.lua (which some plugins depend on) know where to find sqlite
-vim.glob.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
+vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
