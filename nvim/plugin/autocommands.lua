@@ -122,12 +122,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --  For example, in C this would take you to the header.
     map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
-    map('<space>gt', vim.lsp.buf.type_definition, '[G]o to [T]ype definition')
     map('K', vim.lsp.buf.hover, 'hover')
+
+    map('<space>gt', vim.lsp.buf.type_definition, '[G]o to [T]ype definition')
     map('<space>pd', peek_definition, '[P]eek [D]efinition')
     map('<space>pt', peek_type_definition, '[P]eek [T]ype definition')
     map('gi', vim.lsp.buf.implementation, '[G]o to [I]mplementation')
-    map('<C-k>', vim.lsp.buf.signature_help, 'signature help')
+    map('<A-k>', vim.lsp.buf.signature_help, 'signature help')
     map('<space>wa', vim.lsp.buf.add_workspace_folder, 'add [W]orksp[A]ce folder')
     map('<space>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace folder [R]emove')
     map('<space>wl', function()
@@ -140,6 +141,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('<M-l>', vim.lsp.codelens.run, 'run code lens')
     map('<space>cr', vim.lsp.codelens.refresh, '[c]ode lenses [r]efresh')
     map('gr', vim.lsp.buf.references, '[G]et [R]eferences')
+
+    -- Format buffer
     map('<space>f', function()
       vim.lsp.buf.format { async = true }
     end, ('[F]ormat buffer'))
