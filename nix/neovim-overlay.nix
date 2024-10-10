@@ -113,6 +113,15 @@ with final.pkgs.lib; let
     promise-async # https://github.com/kevinhwang91/promise-async/
     nvimufo # https://github.com/kevinhwang91/nvim-ufo/
     toggleterm-nvim # https://github.com/akinsho/toggleterm.nvim/
+
+    # DAP
+    nvim-dap # https://github.com/mfussenegger/nvim-dap/
+    nvim-dap-ui # https://github.com/rcarriga/nvim-dap-ui/
+    nvim-nio # https://github.com/nvim-neotest/nvim-nio/
+    # telescope-dap-nvim # https://github.com/nvim-telescope/telescope-dap.nvim/
+
+    # Own debuggers
+    nvim-dap-go
   ];
 
   extraPackages = with pkgs; [
