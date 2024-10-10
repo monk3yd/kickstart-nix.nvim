@@ -135,7 +135,7 @@ with final.pkgs.lib; let
     pyright
     nodePackages.vscode-json-languageserver
     dockerfile-language-server-nodejs
-    # vscode-langservers-extracted # html/css/eslint
+    vscode-langservers-extracted # html/css/eslint
   ];
 in {
   # This is the neovim derivation
