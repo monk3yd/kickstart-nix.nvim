@@ -112,6 +112,7 @@ with final.pkgs.lib; let
     zellijnav # https://github.com/swaits/zellij-nav.nvim
     promise-async # https://github.com/kevinhwang91/promise-async/
     nvimufo # https://github.com/kevinhwang91/nvim-ufo/
+    toggleterm-nvim # https://github.com/akinsho/toggleterm.nvim/
   ];
 
   extraPackages = with pkgs; [
