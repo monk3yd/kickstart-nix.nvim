@@ -107,7 +107,7 @@ with final.pkgs.lib; let
     # ^ bleeding-edge plugins from flake inputs
     which-key-nvim
 
-    # monk3yd
+    # ---- monk3yd ----
     gruvbox-material # https://github.com/sainnhe/gruvbox-material
     zellijnav # https://github.com/swaits/zellij-nav.nvim
     promise-async # https://github.com/kevinhwang91/promise-async/
