@@ -16,37 +16,42 @@ local root_files = {
     '.eslintrc.json'
 }
 
-require('lspconfig').eslint.setup {}
-
 vim.lsp.start {
     name = 'javascript',
     cmd = { js_cmd, '--stdio' },
     root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
     capabilities = require('user.lsp').make_client_capabilities(),
     filetypes = { "javascript", "javascriptreact", "javascript.jsx" },
-    init_options = {
-        provideFormatter = true,
-        preferences = {
-            quotePreference = "single",
-            importModuleSpecifierPreference = "relative"
-        }
-    },
     settings = {
-        javascript = {
-            format = {
+        codeAction = {
+            disableRuleComment = {
                 enable = true,
-                insertSpaceAfterFunctionKeywordForAnonymousFunctions = true,
-                insertSpaceAfterKeywordsInControlFlowStatements = true
+                location = "separateLine"
             },
-            suggestionActions = {
-                enabled = true
-            },
-            updateImportsOnFileMove = {
-                enabled = "always"
-            },
-            validate = {
+            showDocumentation = {
                 enable = true
             }
+        },
+        codeActionOnSave = {
+            enable = false,
+            mode = "all"
+        },
+        experimental = {
+            useFlatConfig = false
+        },
+        format = true,
+        nodePath = "",
+        onIgnoredFiles = "off",
+        problems = {
+            shortenToSingleLine = false
+        },
+        quiet = false,
+        rulesCustomizations = {},
+        run = "onType",
+        useESLintClass = false,
+        validate = "on",
+        workingDirectory = {
+            mode = "location"
         }
     },
     on_attach = function(client, bufnr)
@@ -55,6 +60,10 @@ vim.lsp.start {
 
         -- You can add any additional on_attach logic here
         -- For example, setting up keybindings or other buffer-local options
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+        })
     end,
 }
 
