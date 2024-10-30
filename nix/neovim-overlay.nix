@@ -113,6 +113,7 @@ with final.pkgs.lib; let
     promise-async # https://github.com/kevinhwang91/promise-async/
     nvimufo # https://github.com/kevinhwang91/nvim-ufo/
     toggleterm-nvim # https://github.com/akinsho/toggleterm.nvim/
+    git-worktree-nvim # https://github.com/ThePrimeagen/git-worktree.nvim/
 
     # DAP
     nvim-dap # https://github.com/mfussenegger/nvim-dap/
