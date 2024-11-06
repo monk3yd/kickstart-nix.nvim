@@ -124,6 +124,9 @@ with final.pkgs.lib; let
     # Own debuggers
     nvim-dap-go
     nvim-dap-python
+
+    # jsonls lsp dependency
+    SchemaStore-nvim # https://github.com/b0o/SchemaStore.nvim/
   ];
 
   extraPackages = with pkgs; [
