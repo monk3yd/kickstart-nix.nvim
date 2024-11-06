@@ -123,6 +123,7 @@ with final.pkgs.lib; let
 
     # Own debuggers
     nvim-dap-go
+    nvim-dap-python
   ];
 
   extraPackages = with pkgs; [
