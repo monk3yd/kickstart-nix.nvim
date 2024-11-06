@@ -134,10 +134,11 @@ with final.pkgs.lib; let
     templ
     htmx-lsp
     tailwindcss-language-server
-    pyright
-    nodePackages.vscode-json-languageserver
-    dockerfile-language-server-nodejs
-    vscode-langservers-extracted # html/css/eslint
+    pyright # python LSP
+    black # python formatter
+    # nodePackages.vscode-json-languageserver # json LSP
+    dockerfile-language-server-nodejs # dockerfile LSP
+    vscode-langservers-extracted # html/css/eslint/json
   ];
 in {
   # This is the neovim derivation
