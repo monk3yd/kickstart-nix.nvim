@@ -1,9 +1,3 @@
--- First ensure null-ls is installed and imported
-local null_ls = require("null-ls")
-
--- Python formatter configuration
-local formatting = null_ls.builtins.formatting
-
 local pyright_cmd = 'pyright-langserver'
 
 -- Check if pyright is available
@@ -21,13 +15,19 @@ local root_files = {
   '.git',
 }
 
--- Initialize null-ls with Python formatters
-null_ls.setup({
-  sources = {
-    -- You can choose between different formatters:
-    formatting.black.with({
-      extra_args = { "--fast", "--line-length=88" }
-    }),
+-- Ensure conform.nvim is installed and imported
+local conform = require("conform")
+
+-- Configure conform.nvim
+conform.setup({
+  formatters_by_ft = {
+    python = { "black" },  -- You can add multiple formatters: { "black", "isort" }
+  },
+  -- Configure formatters
+  formatters = {
+    black = {
+      prepend_args = { "--line-length=88" },
+    },
   },
 })
 

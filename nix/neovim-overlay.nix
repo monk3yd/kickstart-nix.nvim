@@ -121,6 +121,9 @@ with final.pkgs.lib; let
     nvim-nio # https://github.com/nvim-neotest/nvim-nio/
     # telescope-dap-nvim # https://github.com/nvim-telescope/telescope-dap.nvim/
 
+    # Formatter
+    conform-nvim # https://github.com/stevearc/conform.nvim
+
     # Own debuggers
     nvim-dap-go
     nvim-dap-python
