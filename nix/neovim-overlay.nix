@@ -122,7 +122,7 @@ with final.pkgs.lib; let
     # telescope-dap-nvim # https://github.com/nvim-telescope/telescope-dap.nvim/
 
     # Formatter
-    conform-nvim # https://github.com/stevearc/conform.nvim
+    # conform-nvim # https://github.com/stevearc/conform.nvim
 
     # Own debuggers
     nvim-dap-go
