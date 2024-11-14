@@ -151,13 +151,10 @@ with final.pkgs.lib; let
     templ
     htmx-lsp
     pyright # python lsp
-    # debugpy # python debugger
     black # python formatter
     tailwindcss-language-server
-    # nodePackages.vscode-json-languageserver # json lsp
     dockerfile-language-server-nodejs # dockerfile lsp
     vscode-langservers-extracted # html/css/eslint/json
-    # vscode-js-debug # js debugger
     typescript
     typescript-language-server # js/ts lsp
   ];
