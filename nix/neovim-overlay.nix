@@ -158,6 +158,7 @@ with final.pkgs.lib; let
     dockerfile-language-server-nodejs # dockerfile lsp
     vscode-langservers-extracted # html/css/eslint/json
     # vscode-js-debug # js debugger
+    typescript
     typescript-language-server # js/ts lsp
   ];
 in {
