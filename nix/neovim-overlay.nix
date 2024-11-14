@@ -17,6 +17,17 @@ with final.pkgs.lib; let
   # This is the helper function that builds the Neovim derivation.
   mkNeovim = pkgs.callPackage ./mkNeovim.nix { inherit pkgs-wrapNeovim; };
 
+  nvim-dap-vscode-js = pkgs.vimUtils.buildVimPlugin {
+    pname = "nvim-dap-vscode-js";
+    version = "2022-11-11";
+    src = pkgs.fetchFromGitHub {
+        owner = "mxsdev";
+        repo = "nvim-dap-vscode-js";
+        rev = "";
+        sha256 = pkgs.lib.fakeSha256;
+    };
+  };
+
   zellijnav = pkgs.vimUtils.buildVimPlugin {
     pname = "zellij-nav.nvim";
     version = "2024-09-03";
@@ -122,6 +133,7 @@ with final.pkgs.lib; let
     # telescope-dap-nvim # https://github.com/nvim-telescope/telescope-dap.nvim/
     nvim-dap-go
     nvim-dap-python
+    # nvim-dap-vscode-js # https://github.com/mxsdev/nvim-dap-vscode-js
 
     # Formatter
     # conform-nvim # https://github.com/stevearc/conform.nvim
@@ -145,7 +157,7 @@ with final.pkgs.lib; let
     # nodePackages.vscode-json-languageserver # json lsp
     dockerfile-language-server-nodejs # dockerfile lsp
     vscode-langservers-extracted # html/css/eslint/json
-    vscode-js-debug # js debugger
+    # vscode-js-debug # js debugger
     typescript-language-server # js/ts lsp
   ];
 in {
