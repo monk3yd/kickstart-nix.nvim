@@ -120,13 +120,11 @@ with final.pkgs.lib; let
     nvim-dap-ui # https://github.com/rcarriga/nvim-dap-ui/
     nvim-nio # https://github.com/nvim-neotest/nvim-nio/
     # telescope-dap-nvim # https://github.com/nvim-telescope/telescope-dap.nvim/
+    nvim-dap-go
+    nvim-dap-python
 
     # Formatter
     # conform-nvim # https://github.com/stevearc/conform.nvim
-
-    # Own debuggers
-    nvim-dap-go
-    nvim-dap-python
 
     # jsonls lsp dependency
     SchemaStore-nvim # https://github.com/b0o/SchemaStore.nvim/
@@ -135,16 +133,20 @@ with final.pkgs.lib; let
   extraPackages = with pkgs; [
     # language servers, etc.
     lua-language-server
-    nil # nix LSP
-    gopls
+    nil # nix lsp
+    gopls # go lsp
+    delve # go debugger
     templ
     htmx-lsp
-    tailwindcss-language-server
-    pyright # python LSP
+    pyright # python lsp
+    debugpy # python debugger
     black # python formatter
-    # nodePackages.vscode-json-languageserver # json LSP
-    dockerfile-language-server-nodejs # dockerfile LSP
+    tailwindcss-language-server
+    # nodePackages.vscode-json-languageserver # json lsp
+    dockerfile-language-server-nodejs # dockerfile lsp
     vscode-langservers-extracted # html/css/eslint/json
+    vscode-js-debug # js debugger
+    typescript-language-server # js/ts lsp
   ];
 in {
   # This is the neovim derivation

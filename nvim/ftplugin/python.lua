@@ -35,12 +35,6 @@ vim.lsp.start {
                     reportPrivateImportUsage = "warning",
                 },
             },
-            -- Formatting settings
-            formatting = {
-                provider = "black",            -- or "autopep8"
-                blackPath = "black",           -- path to black
-                blackArgs = { "--line-length", "88" }, -- arguments for black
-            },
         },
     },
     on_attach = function(client, bufnr)
