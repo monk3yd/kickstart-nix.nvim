@@ -139,7 +139,7 @@ with final.pkgs.lib; let
     templ
     htmx-lsp
     pyright # python lsp
-    debugpy # python debugger
+    # debugpy # python debugger
     black # python formatter
     tailwindcss-language-server
     # nodePackages.vscode-json-languageserver # json lsp
