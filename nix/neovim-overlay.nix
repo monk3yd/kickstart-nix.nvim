@@ -17,17 +17,6 @@ with final.pkgs.lib; let
   # This is the helper function that builds the Neovim derivation.
   mkNeovim = pkgs.callPackage ./mkNeovim.nix { inherit pkgs-wrapNeovim; };
 
-  nvim-dap-vscode-js = pkgs.vimUtils.buildVimPlugin {
-    pname = "nvim-dap-vscode-js";
-    version = "2022-11-11";
-    src = pkgs.fetchFromGitHub {
-        owner = "mxsdev";
-        repo = "nvim-dap-vscode-js";
-        rev = "";
-        sha256 = pkgs.lib.fakeSha256;
-    };
-  };
-
   zellijnav = pkgs.vimUtils.buildVimPlugin {
     pname = "zellij-nav.nvim";
     version = "2024-09-03";
@@ -51,6 +40,28 @@ with final.pkgs.lib; let
     };
     meta.homepage = "https://github.com/kevinhwang91/nvim-ufo/";
   };
+
+  git-worktree = pkgs.vimUtils.buildVimPlugin {
+    pname = "git-worktree.nvim";
+    version = "2.0.1";
+    src = pkgs.fetchFromGitHub {
+        owner = "polarmutex";
+        repo = "git-worktree.nvim";
+        rev = "bac72c240b6bf1662296c31546c6dad89b4b7a3c";
+        sha256 = "1zlxycgnwb7gb85m5lxwlfdcsyyidikkph1aphngxyizfy325xsj";
+    };
+  };
+
+  # nvim-dap-vscode-js = pkgs.vimUtils.buildVimPlugin {
+  #   pname = "nvim-dap-vscode-js";
+  #   version = "2022-11-11";
+  #   src = pkgs.fetchFromGitHub {
+  #       owner = "mxsdev";
+  #       repo = "nvim-dap-vscode-js";
+  #       rev = "";
+  #       sha256 = pkgs.lib.fakeSha256;
+  #   };
+  # };
 
   # A plugin can either be a package or an attrset, such as
   # { plugin = <plugin>; # the package, e.g. pkgs.vimPlugins.nvim-cmp
@@ -124,7 +135,8 @@ with final.pkgs.lib; let
     promise-async # https://github.com/kevinhwang91/promise-async/
     nvimufo # https://github.com/kevinhwang91/nvim-ufo/
     toggleterm-nvim # https://github.com/akinsho/toggleterm.nvim/
-    git-worktree-nvim # https://github.com/ThePrimeagen/git-worktree.nvim/
+    # git-worktree-nvim # https://github.com/ThePrimeagen/git-worktree.nvim/
+    git-worktree # https://github.com/polarmutex/git-worktree.nvim
 
     # DAP
     nvim-dap # https://github.com/mfussenegger/nvim-dap/
