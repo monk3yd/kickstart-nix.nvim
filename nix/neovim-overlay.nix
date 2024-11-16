@@ -52,17 +52,6 @@ with final.pkgs.lib; let
     };
   };
 
-  # nvim-dap-vscode-js = pkgs.vimUtils.buildVimPlugin {
-  #   pname = "nvim-dap-vscode-js";
-  #   version = "2022-11-11";
-  #   src = pkgs.fetchFromGitHub {
-  #       owner = "mxsdev";
-  #       repo = "nvim-dap-vscode-js";
-  #       rev = "";
-  #       sha256 = pkgs.lib.fakeSha256;
-  #   };
-  # };
-
   # A plugin can either be a package or an attrset, such as
   # { plugin = <plugin>; # the package, e.g. pkgs.vimPlugins.nvim-cmp
   #   config = <config>; # String; a config that will be loaded with the plugin
