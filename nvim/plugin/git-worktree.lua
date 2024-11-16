@@ -15,3 +15,6 @@ end)
 Hooks.register(Hooks.type.DELETE, function ()
 	vim.cmd(config.update_on_change_command)
 end)
+
+vim.keymap.set("n", "<leader>sr", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>", { desc = '[S]witch between workt[r]ees', silent=true })
+vim.keymap.set("n", "<leader>sR", "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>", { desc = 'Create new worktree', silent=true })
