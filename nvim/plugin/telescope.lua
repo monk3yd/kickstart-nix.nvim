@@ -132,9 +132,7 @@ vim.keymap.set(
 
 telescope.setup {
   defaults = {
-    path_display = {
-      'truncate',
-    },
+    path_display = { 'truncate', },
     layout_strategy = 'vertical',
     layout_config = layout_config,
     mappings = {
@@ -182,5 +180,5 @@ telescope.setup {
 }
 
 telescope.load_extension('fzy_native')
-telescope.load_extension('git_worktree')
+-- telescope.load_extension('git_worktree')
 -- telescope.load_extension('smart_history')
