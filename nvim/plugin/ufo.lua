@@ -7,6 +7,10 @@ local ufo = require('ufo')
 ufo.setup {
     open_fold_hl_timeout = 150,
     close_fold_kinds_for_lt = { 'imports', 'comment'},
+    close_fold_kinds_for_ft = {
+        default = {default = {}}
+    },
+    enable_get_fold_virt_text = false,
     preview = {
         win_config = {
             border = { '', '─', '', '', '', '─', '', '' },
@@ -18,7 +22,7 @@ ufo.setup {
             scrollD = '<C-d>'
         }
     },
-    provider_selector = function(bufnr, filetype, buftype)
+    provider_selector = function()
         return {'treesitter', 'indent'}
     end
 }
