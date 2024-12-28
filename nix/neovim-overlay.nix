@@ -152,6 +152,9 @@ with final.pkgs.lib; let
 
     # jsonls lsp dependency
     SchemaStore-nvim # https://github.com/b0o/SchemaStore.nvim/
+
+    # AI
+    copilot-vim # https://github.com/github/copilot.vim/
   ];
 
   extraPackages = with pkgs; [
