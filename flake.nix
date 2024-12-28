@@ -14,13 +14,8 @@
     # };
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    flake-utils,
-    gen-luarc,
-    ...
-  }: let
+  outputs = inputs @ { self, nixpkgs, flake-utils, gen-luarc, ... }:
+  let
     supportedSystems = [
       "x86_64-linux"
       "aarch64-linux"
@@ -34,6 +29,11 @@
     flake-utils.lib.eachSystem supportedSystems (system: let
       pkgs = import nixpkgs {
         inherit system;
+
+        config = {
+            allowUnfree = true;
+        };
+
         overlays = [
           # Import the overlay, so that the final Neovim derivation(s) can be accessed via pkgs.<nvim-pkg>
           neovim-overlay
