@@ -29,17 +29,17 @@ with final.pkgs.lib; let
     meta.homepage = "https://github.com/swaits/zellij-nav.nvim/";
   };
 
-  # nvimufo = pkgs.vimUtils.buildVimPlugin {
-  #   pname = "nvim-ufo";
-  #   version = "2024-12-26";
-  #   src = pkgs.fetchFromGitHub {
-  #     owner = "kevinhwang91";
-  #     repo = "nvim-ufo";
-  #     rev = "32cb247b893a384f1888b9cd737264159ecf183c";
-  #     sha256 = "0p2f5p1nky56m666lbl8g111pf6h4piv8a29z86kdhm9hadrzp3s";
-  #   };
-  #   meta.homepage = "https://github.com/kevinhwang91/nvim-ufo/";
-  # };
+  nvimufo = pkgs.vimUtils.buildVimPlugin {
+    pname = "nvim-ufo";
+    version = "2024-12-26";
+    src = pkgs.fetchFromGitHub {
+      owner = "kevinhwang91";
+      repo = "nvim-ufo";
+      rev = "32cb247b893a384f1888b9cd737264159ecf183c";
+      sha256 = "0p2f5p1nky56m666lbl8g111pf6h4piv8a29z86kdhm9hadrzp3s";
+    };
+    meta.homepage = "https://github.com/kevinhwang91/nvim-ufo/";
+  };
 
   git-worktree = pkgs.vimUtils.buildVimPlugin {
     pname = "git-worktree.nvim";
@@ -122,7 +122,7 @@ with final.pkgs.lib; let
     gruvbox-material # https://github.com/sainnhe/gruvbox-material
     zellijnav # https://github.com/swaits/zellij-nav.nvim
     promise-async # https://github.com/kevinhwang91/promise-async/
-    # nvimufo # https://github.com/kevinhwang91/nvim-ufo/
+    nvimufo # https://github.com/kevinhwang91/nvim-ufo/
     toggleterm-nvim # https://github.com/akinsho/toggleterm.nvim/
 
     # TODO
@@ -145,7 +145,7 @@ with final.pkgs.lib; let
     SchemaStore-nvim # https://github.com/b0o/SchemaStore.nvim/
 
     # AI
-    copilot-vim # https://github.com/github/copilot.vim/
+    # copilot-vim # https://github.com/github/copilot.vim/
   ];
 
   extraPackages = with pkgs; [
