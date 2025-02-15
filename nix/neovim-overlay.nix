@@ -121,6 +121,7 @@ with final.pkgs.lib; let
     # ---- monk3yd ----
     gruvbox-material # https://github.com/sainnhe/gruvbox-material
     zellijnav # https://github.com/swaits/zellij-nav.nvim
+    nvim-lspconfig
     promise-async # https://github.com/kevinhwang91/promise-async/
     nvimufo # https://github.com/kevinhwang91/nvim-ufo/
     toggleterm-nvim # https://github.com/akinsho/toggleterm.nvim/
