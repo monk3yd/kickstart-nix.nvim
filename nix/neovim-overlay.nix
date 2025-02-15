@@ -121,9 +121,8 @@ with final.pkgs.lib; let
     # ---- monk3yd ----
     gruvbox-material # https://github.com/sainnhe/gruvbox-material
     zellijnav # https://github.com/swaits/zellij-nav.nvim
-    nvim-lspconfig
     promise-async # https://github.com/kevinhwang91/promise-async/
-    nvimufo # https://github.com/kevinhwang91/nvim-ufo/
+    nvim-lspconfig
     toggleterm-nvim # https://github.com/akinsho/toggleterm.nvim/
 
     # TODO
@@ -144,6 +143,8 @@ with final.pkgs.lib; let
 
     # jsonls lsp dependency
     SchemaStore-nvim # https://github.com/b0o/SchemaStore.nvim/
+
+    nvimufo # https://github.com/kevinhwang91/nvim-ufo/
 
     # AI
     # copilot-vim # https://github.com/github/copilot.vim/
