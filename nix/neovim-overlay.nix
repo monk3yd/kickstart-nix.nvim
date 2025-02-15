@@ -29,17 +29,17 @@ with final.pkgs.lib; let
     meta.homepage = "https://github.com/swaits/zellij-nav.nvim/";
   };
 
-  nvimufo = pkgs.vimUtils.buildVimPlugin {
-    pname = "nvim-ufo";
-    version = "2024-04-03";
-    src = pkgs.fetchFromGitHub {
-      owner = "kevinhwang91";
-      repo = "nvim-ufo";
-      rev = "a52c92c3bbaa10f0c9b547a50adaa8c7d8b29f94";
-      sha256 = "1fv3rhny1d8wgxd3h3fy4vv05nb0fz506sk2in8rkmwlzwixl2wn";
-    };
-    meta.homepage = "https://github.com/kevinhwang91/nvim-ufo/";
-  };
+  # nvimufo = pkgs.vimUtils.buildVimPlugin {
+  #   pname = "nvim-ufo";
+  #   version = "2024-04-03";
+  #   src = pkgs.fetchFromGitHub {
+  #     owner = "kevinhwang91";
+  #     repo = "nvim-ufo";
+  #     rev = "a52c92c3bbaa10f0c9b547a50adaa8c7d8b29f94";
+  #     sha256 = "1fv3rhny1d8wgxd3h3fy4vv05nb0fz506sk2in8rkmwlzwixl2wn";
+  #   };
+  #   meta.homepage = "https://github.com/kevinhwang91/nvim-ufo/";
+  # };
 
   git-worktree = pkgs.vimUtils.buildVimPlugin {
     pname = "git-worktree.nvim";
@@ -144,7 +144,8 @@ with final.pkgs.lib; let
     # jsonls lsp dependency
     SchemaStore-nvim # https://github.com/b0o/SchemaStore.nvim/
 
-    nvimufo # https://github.com/kevinhwang91/nvim-ufo/
+    # nvimufo # https://github.com/kevinhwang91/nvim-ufo/
+    nvim-ufo
 
     # AI
     # copilot-vim # https://github.com/github/copilot.vim/
