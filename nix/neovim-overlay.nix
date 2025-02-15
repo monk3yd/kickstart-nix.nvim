@@ -31,12 +31,12 @@ with final.pkgs.lib; let
 
   nvimufo = pkgs.vimUtils.buildVimPlugin {
     pname = "nvim-ufo";
-    version = "2024-12-26";
+    version = "2024-04-03";
     src = pkgs.fetchFromGitHub {
       owner = "kevinhwang91";
       repo = "nvim-ufo";
-      rev = "32cb247b893a384f1888b9cd737264159ecf183c";
-      sha256 = "0p2f5p1nky56m666lbl8g111pf6h4piv8a29z86kdhm9hadrzp3s";
+      rev = "a52c92c3bbaa10f0c9b547a50adaa8c7d8b29f94";
+      sha256 = "1fv3rhny1d8wgxd3h3fy4vv05nb0fz506sk2in8rkmwlzwixl2wn";
     };
     meta.homepage = "https://github.com/kevinhwang91/nvim-ufo/";
   };
